@@ -20,5 +20,5 @@ jobs:
     - name: Available sdks
       run: xcodebuild -showsdks
     - name: Run unit tests
-      run: xcodebuild test -scheme FastLane_Integration -project FastLane_Integration.xcodeproj -destination 'platform=iOS Simulator,name=iPhone-12-Pro,OS=latest' | xcpretty && exit ${PIPESTATUS[0]}
+      run: xcodebuild test -scheme FastLane_Integration -project FastLane_Integration.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 11,OS=iOS 14.4' | xcpretty && exit ${PIPESTATUS[0]}
 
