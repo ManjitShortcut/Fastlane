@@ -14,7 +14,7 @@ jobs:
     - name: List available Xcode versions
       run: ls /Applications | grep Xcode
     - name: Select Xcode
-      run: sudo xcode-select --switch /Applications/Xcode_13.0.app/Contents/Developer
+      run: sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
     - name: Available simulators
       run: xcrun simctl list
     - name: Available sdks
