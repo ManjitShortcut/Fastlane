@@ -7,13 +7,18 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
-
-    runs-on: macos-latest
-
+    Run_workspace_Tests:
+    runs-on: macOS-11
     steps:
-    - uses: actions/checkout@v2
-    - name: Build
-      run: swift build -v
-    - name: Run tests
-      run: swift test -v
+    - uses: actions/checkout@v1
+    - name: List available Xcode versions
+      run: ls /Applications | grep Xcode
+    - name: Select Xcode
+      run: sudo xcode-select --switch /Applications/Xcode_13.0.app/Contents/Developer
+    - name: Available simulators
+      run: xcrun simctl list
+    - name: Available sdks
+      run: xcodebuild -showsdks
+    - name: Run unit tests
+      run: xcodebuild test -scheme assignment -project assignment.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 13,OS=15.0' | xcpretty && exit ${PIPESTATUS[0]}
+
