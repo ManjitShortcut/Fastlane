@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-    runs-on: macos-latest
+    runs-on: macOS-latest
     steps:
     - uses: actions/checkout@v1
     - name: List available Xcode versions
