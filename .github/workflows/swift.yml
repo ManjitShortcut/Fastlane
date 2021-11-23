@@ -22,7 +22,8 @@ jobs:
     - name: Run macOS tests
       run: swift test -v
     - name: Build for iOS
-      run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild build-for-testing -scheme IndexedDataStore -destination "platform=iOS Simulator,OS=latest,name=iPhone 12" | xcpretty
+      run: xcodebuild build-for-testing -scheme FastLane_Integration -project FastLane_Integration.xcodeproj -destination "platform=iOS Simulator,OS=latest,name=iPhone 12" | xcpretty
     - name: Run iOS tests
-      run: set -o pipefail && env NSUnbufferedIO=YES xcodebuild test-without-building -scheme IndexedDataStore -destination "platform=iOS Simulator,OS=latest,name=iPhone 12" | xcpretty
+      run: xcodebuild test -scheme FastLane_Integration -project FastLane_Integration.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 13,OS=15.0' | xcpretty && exit ${PIPESTATUS[0]}
+
 
