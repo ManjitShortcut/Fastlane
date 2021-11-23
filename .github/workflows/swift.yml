@@ -20,8 +20,8 @@ jobs:
     - name: Available sdks
       run: xcodebuild -showsdks
     - name: Build for iOS
-      run: xcodebuild build-for-testing -scheme FastLane_Integration -project FastLane_Integration.xcodeproj -destination "platform=iOS Simulator,OS=latest,name=Any iOS Device" | xcpretty
+      run: xcodebuild build-for-testing -scheme FastLane_Integration -project FastLane_Integration.xcodeproj -destination "platform=iOS Simulator,OS=latest,name=Any iOS Device" | xcpretty && exit ${PIPESTATUS[0]}
     - name: Run iOS tests
-      run: xcodebuild test-without-building -scheme FastLane_Integration -project FastLane_Integration.xcodeproj -destination "platform=iOS Simulator,OS=latest,name=Any iOS Device" | xcpretty
+      run: xcodebuild test-without-building -scheme FastLane_Integration -project FastLane_Integration.xcodeproj -destination "platform=iOS Simulator,OS=latest,name=Any iOS Device" | xcpretty && exit ${PIPESTATUS[0]}
 
 
