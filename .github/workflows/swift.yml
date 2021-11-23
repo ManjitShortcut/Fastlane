@@ -19,8 +19,6 @@ jobs:
       run: xcrun simctl list
     - name: Available sdks
       run: xcodebuild -showsdks
-    - name: Lint
-      run: swiftlint
     - name: Run macOS tests
       run: swift test -v
     - name: Build for iOS
