@@ -16,12 +16,12 @@ jobs:
     - name: Select Xcode
       run: sudo xcode-select --switch /Applications/Xcode_12.4.app/Contents/Developer
     - name: Available simulators
-      run: xcrun simctl list | grep Booted
+      run: xcrun simctl list 
     - name: Available sdks
       run: xcodebuild -showsdks
     - name: Build for iOS
-      run: xcodebuild build-for-testing -scheme FastLane_Integration -project FastLane_Integration.xcodeproj -destination "platform=iOS Simulator,OS=14.4,name=iPhone 12 Pro" | xcpretty && exit ${PIPESTATUS[0]}
+      run: xcodebuild -scheme FastLane_Integration -project FastLane_Integration.xcodeproj -destination "platform=iOS Simulator,OS=14.4,name=iPhone 12 Pro" | xcpretty && exit ${PIPESTATUS[0]}
     - name: Run iOS tests
-      run: xcodebuild test-without-building -scheme FastLane_Integration -project FastLane_Integration.xcodeproj -destination "platform=iOS Simulator,OS=latest,name=Any iOS Device" | xcpretty && exit ${PIPESTATUS[0]}
+      run: xcodebuild test -scheme FastLane_Integration -project FastLane_Integration.xcodeproj -destination "platform=iOS Simulator,OS=latest,name=Any iOS Device" | xcpretty && exit ${PIPESTATUS[0]}
 
 
