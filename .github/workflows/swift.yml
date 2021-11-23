@@ -20,7 +20,7 @@ jobs:
     - name: Delete Unavailabe simulators
       run: xcrun simctl delete unavailable
     - name: Available simulators
-      run: xcrun simctl list --json
+      run: xcrun simctl list --json     
     - name: Available sdks
       run: xcodebuild -showsdks
     - name: Build for iOS
