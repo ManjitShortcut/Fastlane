@@ -19,8 +19,6 @@ jobs:
       run: xcrun simctl list
     - name: Available sdks
       run: xcodebuild -showsdks
-    - name: Run macOS tests
-      run: swift test -v
     - name: Build for iOS
       run: xcodebuild build-for-testing -scheme FastLane_Integration -project FastLane_Integration.xcodeproj -destination "platform=iOS Simulator,OS=latest,name=iPhone 12" | xcpretty
     - name: Run iOS tests
