@@ -16,7 +16,11 @@ jobs:
     - name: Select Xcode
       run: sudo xcode-select --switch /Applications/Xcode_12.4.app/Contents/Developer
     - name: Available simulators
-      run: xcrun simctl list 
+      run: xcrun simctl list --json
+    - name: Delete Unavailabe simulators
+      run: xcrun simctl delete unavailable
+    - name: Available simulators
+      run: xcrun simctl list --json
     - name: Available sdks
       run: xcodebuild -showsdks
     - name: Build for iOS
