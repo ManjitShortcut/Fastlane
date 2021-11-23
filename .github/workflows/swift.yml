@@ -19,6 +19,8 @@ jobs:
       run: xcrun simctl list --json devices available
     - name: Available sdks
       run: xcodebuild -showsdks
+    - name: Boot iOS simulator
+      run: xcrun simctl boot 6E84FD00-44FB-4675-AAFC-4E81A6E9BADB
     - name: Build for iOS
       run: xcodebuild build-for-testing -scheme FastLane_Integration -project FastLane_Integration.xcodeproj -destination "platform=iOS Simulator,OS=14.0,name=Any iOS Device" | xcpretty && exit ${PIPESTATUS[0]}
     - name: Run iOS tests
