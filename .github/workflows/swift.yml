@@ -13,8 +13,6 @@ jobs:
     - uses: actions/checkout@v1
     - name: List available Xcode versions
       run: ls /Applications | grep Xcode
-    -name: Install xcode
-     run: sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
     - name: Select Xcode
       run: sudo xcode-select -switch /Applications/Xcode_13.app && /usr/bin/xcodebuild -version
     - name: Available simulators
