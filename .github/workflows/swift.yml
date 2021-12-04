@@ -19,4 +19,6 @@ jobs:
       run: xcrun simctl list --json     
     - name: Available sdks
       run: xcodebuild -showsdks
+    - name: Run unit tests
+      run: xcodebuild test -scheme FastLane_Integration -project FastLane_Integration.xcodeproj -destination 'platform=iOS Simulator,name=iPhone 13,OS=15.0' | xcpretty && exit ${PIPESTATUS[0]}
 
