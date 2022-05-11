@@ -53,8 +53,7 @@ lane : get_dev_certs do
         "no.securitas.SolutionsTool" => "no.securitas.Solutions Tool Inhouse"
       }
     })
-    
- 
+   
 ## Upload iPa to app store
 lane :upload_app do 
   deliver(
